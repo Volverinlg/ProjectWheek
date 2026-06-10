@@ -1,16 +1,18 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Ship : MonoBehaviour{
+    public ShipStats Stats;
+    private InputAction _moveAction;
     /*TODO
-     movement,shoot
+    shoot
      */
-    void Start()
-    {
-        
+    void Start(){
+        _moveAction = InputSystem.actions.FindAction("Move");
     }
     
-    void Update()
-    {
-        
+    void Update(){
+        Vector2 moveValue = _moveAction.ReadValue<Vector2>();
+        transform.Translate(moveValue.x * Stats.Speed * Time.deltaTime, 0, moveValue.y * Stats.Speed * Time.deltaTime);
     }
 }
