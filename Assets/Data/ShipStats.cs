@@ -4,5 +4,8 @@ using UnityEngine;
 public class ShipStats : ScriptableObject{
     public float Speed;
     public int HP;
-    public int dämätsch; // :}
+    public int Dämätsch; // :}
+    public float Range;
+    public float FireRate;
+    public GameObject Projectile;
 }
