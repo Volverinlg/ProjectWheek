@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour{
     void Update(){
         MoveForward();
         CheckArrivale();
+        
     }
 
     public void MoveForward(){
@@ -32,5 +33,28 @@ public class Enemy : MonoBehaviour{
                 Target = Target.next;
             }
         }
+    }
+
+    public void Shoot(Enemy Target){
+        var newProjectile = GameObject.Instantiate(Stats.Projectile, transform.position, Quaternion.identity);
+        var projectilePos = newProjectile.transform.position;
+        projectilePos.y = Target.transform.position.y;
+        newProjectile.transform.position = projectilePos;
+        newProjectile.transform.LookAt(Target.transform.position);
+
+       // _attackCooldown = 1 / Mathf.Max(Stats.Firerate, 0.001f); erst rein nehm wenn attaccooldown & firerate ne sache sind
+    }
+    
+    public void DealDamgur(int incomeDMG){
+        int WouldBeHealth = _currenthealth - incomeDMG;
+        if (WouldBeHealth < 0){
+            WouldBeHealth = 0;
+        }
+        if (WouldBeHealth == 0){
+            Destroy(gameObject);
+            //TODO AddScore kommt aber erst am ende als kleine spielerei
+            return;
+        }
+        _currenthealth = WouldBeHealth;
     }
 }
