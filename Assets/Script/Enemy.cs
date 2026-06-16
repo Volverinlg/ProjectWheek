@@ -4,6 +4,8 @@ public class Enemy : MonoBehaviour{
     private int _currenthealth;
     public EnemyStats Stats;
     public Enemy_PathNode Target;
+    private float _attackCooldown;
+    
     
     /*TODO
      shoot
@@ -16,7 +18,27 @@ public class Enemy : MonoBehaviour{
     void Update(){
         MoveForward();
         CheckArrivale();
+
+        _attackCooldown -= Time.deltaTime;
+        var target = FirstTarget();
+        if (_attackCooldown <= 0 && target){
+            transform.LookAt(target.transform.position);
+            //TODO Enumeral bei unity vorbeischauen um Infos darüber rein zu holen
+            Shoot(target);
+        }
         
+    }
+
+    private Ship FirstTarget(){
+        var collidorsInRange = Physics.OverlapSphere(transform.position, Stats.Range);
+        Ship targetCandidate = null;
+        foreach (var collider in collidorsInRange){
+            if (collider.GetComponent<Ship>() != null){
+                targetCandidate = collider.GetComponent<Ship>();
+                break;
+            }
+        }
+        return targetCandidate;
     }
 
     public void MoveForward(){
@@ -35,18 +57,18 @@ public class Enemy : MonoBehaviour{
         }
     }
 
-    public void Shoot(Enemy Target){
-        var newProjectile = GameObject.Instantiate(Stats.Projectile, transform.position, Quaternion.identity);
+    public void Shoot(Ship Target){
+        var newProjectile = Instantiate(Stats.Projectile, transform.position, Quaternion.identity);
         var projectilePos = newProjectile.transform.position;
         projectilePos.y = Target.transform.position.y;
         newProjectile.transform.position = projectilePos;
         newProjectile.transform.LookAt(Target.transform.position);
 
-       // _attackCooldown = 1 / Mathf.Max(Stats.Firerate, 0.001f); erst rein nehm wenn attaccooldown & firerate ne sache sind
+       _attackCooldown = 1 / Mathf.Max(Stats.FireRate, 0.001f); 
     }
     
-    public void DealDamgur(int incomeDMG){
-        int WouldBeHealth = _currenthealth - incomeDMG;
+    public void Dämätsch(int Dämätsch){
+        int WouldBeHealth = _currenthealth - Dämätsch;
         if (WouldBeHealth < 0){
             WouldBeHealth = 0;
         }
@@ -57,4 +79,5 @@ public class Enemy : MonoBehaviour{
         }
         _currenthealth = WouldBeHealth;
     }
+
 }

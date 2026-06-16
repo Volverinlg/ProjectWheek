@@ -48,9 +48,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7314745045437555281, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03748274
+      objectReference: {fileID: 0}
+    - target: {fileID: -7314745045437555281, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.038045883
+      objectReference: {fileID: 0}
+    - target: {fileID: -7314745045437555281, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.69663733
+      objectReference: {fileID: 0}
+    - target: {fileID: -7314745045437555281, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7314745045437555281, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7174235
+      objectReference: {fileID: 0}
+    - target: {fileID: -7314745045437555281, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 91.684
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
       propertyPath: m_Name
       value: TODO Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598419493678936200, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -65,6 +97,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1535411915130391376}
+    - targetCorrespondingSourceObject: {fileID: 7598419493678936200, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5240184935465338517}
   m_SourcePrefab: {fileID: 100100000, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
 --- !u!1 &92679811148518798 stripped
 GameObject:
@@ -84,6 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ship
   Stats: {fileID: 11400000, guid: 1da9164ed4481374dba3b3d5abb836a6, type: 2}
+  shoot: 0
+  guns:
+  - {fileID: 5240184935465338517}
 --- !u!54 &7911983824959527082
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -134,3 +172,21 @@ CapsuleCollider:
   m_Height: 0.60853887
   m_Direction: 1
   m_Center: {x: 0, y: 0.30426943, z: 0}
+--- !u!1 &7276453983625173079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7598419493678936200, guid: 06fb2815a9111cc4f81e1d50b9e53397, type: 3}
+  m_PrefabInstance: {fileID: 975075627417118943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5240184935465338517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7276453983625173079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1049c70b99b3504e96a3a60d287c1e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  Bullet: {fileID: 3796394340536580994, guid: 2f740bca6a71ea048b62c268eb046167, type: 3}
