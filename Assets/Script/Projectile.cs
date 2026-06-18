@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour{
             distanceThisFrame + Single.Epsilon, LayerMask.GetMask("Player"));
         if (hasHit){
             var shipComponent = hit.collider.GetComponent<Ship>();
-            shipComponent?.Dämätsch(Power); 
+            shipComponent?.GetDämätsch(Power); 
             Destroy(gameObject);
         }
         transform.position += transform.forward * distanceThisFrame;

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShipStats
   Speed: 10
   HP: 100
-  "D\xE4m\xE4tsch": 10
+  "D\xE4m\xE4tsch": 100
   Range: 10
-  FireRate: 10
+  FireRate: 1.0754336
   Projectile: {fileID: 1165797381049907443, guid: 2f740bca6a71ea048b62c268eb046167, type: 3}

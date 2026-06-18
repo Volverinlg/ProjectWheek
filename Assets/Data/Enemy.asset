@@ -16,6 +16,6 @@ MonoBehaviour:
   HP: 100
   "D\xE4m\xE4tsch": 50
   Range: 100
-  FireRate: 2.5
+  FireRate: 1.5
   Projectile: {fileID: 478937699306993072, guid: 2abb937fe41c77b46a0426cc8afd200a, type: 3}
   Score: 10
