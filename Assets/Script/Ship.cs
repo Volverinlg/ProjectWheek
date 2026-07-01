@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Ship : MonoBehaviour{
+    // TODO win & lose condition, gameplay loot welcher über 3-5min sich erstreckt, endboss welcher getriggert wird sobald die 3-5min abgelaufen sind
     public ShipStats Stats;
     private int _currenthealth;
    

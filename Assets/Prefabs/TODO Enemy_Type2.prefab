@@ -89,6 +89,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   Stats: {fileID: 11400000, guid: c88d82de5e2d7244fb1806bd35321d0a, type: 2}
   Target: {fileID: 0}
+  FireCoolDown: 1
+  EMovement: 0
+  EShoot: 0
+  SinCenterY: 0
+  WaveHeight: 0.5
+  Frequenz: 1
+  invertieren: 0
 --- !u!135 &8010296159959866285
 SphereCollider:
   m_ObjectHideFlags: 0

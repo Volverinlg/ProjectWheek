@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour{
     
     public void WellenReiter(){
         Vector3 pos = transform.position;
-        pos.x -= Stats.Speed * Time.fixedDeltaTime;
+        pos.x -= Stats.Speed * Time.deltaTime;
         float sin = Mathf.Sin(pos.x * Frequenz) * WaveHeight;
         if (invertieren){
             sin *= -1;
@@ -88,7 +88,10 @@ public class Enemy : MonoBehaviour{
         if (FirstTarget() == null){
             return;
         }
-        FireCoolDown -= Time.deltaTime; 
+        FireCoolDown -= Time.deltaTime;
+        if (FireCoolDown > 0){
+            return;
+        }
         FireCoolDown = 1 / Mathf.Max(Stats.FireRate, 0.001f);
         var newProjectile = Instantiate(Stats.Projectile, transform.position, Quaternion.identity);
         var projectilePos = newProjectile.transform.position;

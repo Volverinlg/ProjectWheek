@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22445b504e2677d4b9a3b119b09bc8df, type: 3}
-  m_Name: Enemy
+  m_Name: Endboss
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  Speed: 5
-  HP: 100
-  "D\xE4m\xE4tsch": 50
-  Range: 100
-  FireRate: 1.5
-  Projectile: {fileID: 478937699306993072, guid: 2abb937fe41c77b46a0426cc8afd200a, type: 3}
-  Score: 10
+  Speed: 0
+  HP: 0
+  "D\xE4m\xE4tsch": 0
+  Range: 0
+  FireRate: 0
+  Projectile: {fileID: 0}
+  Score: 0

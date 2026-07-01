@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8346911034229292351}
   - component: {fileID: -8013791245563875675}
+  - component: {fileID: 5333888354692228427}
   m_Layer: 0
   m_Name: TODO Enemy_Type1
   m_TagString: Untagged
@@ -45,14 +46,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7cdc8709318aa4b98c393cadfba84c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  Stats: {fileID: 11400000, guid: c88d82de5e2d7244fb1806bd35321d0a, type: 2}
+  Stats: {fileID: 11400000, guid: d5ea7da24c6b98544832734e9110a1e2, type: 2}
   Target: {fileID: 0}
+  FireCoolDown: 0
   EMovement: 1
   EShoot: 1
-  SinCenterY: 2
-  WaveHeight: 5
+  SinCenterY: 3
+  WaveHeight: 1
   Frequenz: 1
   invertieren: 0
+--- !u!135 &5333888354692228427
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4010502702195223540}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &6962049423841250992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dd285fcc4a9e0244b84fa8a8797094c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.211
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dd285fcc4a9e0244b84fa8a8797094c3, type: 3}
       propertyPath: m_LocalPosition.z

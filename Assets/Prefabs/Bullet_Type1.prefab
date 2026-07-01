@@ -78,5 +78,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   RemainingLifeTime: 5
-  Speed: 5
+  Speed: 10
   Power: 10
