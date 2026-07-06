@@ -51,8 +51,8 @@ MonoBehaviour:
   FireCoolDown: 0
   EMovement: 1
   EShoot: 1
-  SinCenterY: 3
-  WaveHeight: 1
+  SinCenterY: 0.5
+  WaveHeight: 0.5
   Frequenz: 1
   invertieren: 1
 --- !u!135 &-1325495774038599850

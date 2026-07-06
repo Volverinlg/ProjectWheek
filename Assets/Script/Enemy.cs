@@ -13,7 +13,8 @@ public class Enemy : MonoBehaviour{
     public float WaveHeight = 0.5f;
     public float Frequenz = 1f;
     public bool invertieren;
-    
+
+    public System.Action onDeath;
     
     void Start(){
         SinCenterY = transform.position.y;
@@ -43,6 +44,9 @@ public class Enemy : MonoBehaviour{
     }
 
     public void MoveForward(){
+        if (Target == null){
+            return;
+        }
         float step = Stats.Speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, step);
     }
@@ -76,6 +80,7 @@ public class Enemy : MonoBehaviour{
     public void CheckArrivale(){    
         if (Vector3.Distance(transform.position, Target.transform.position) < 0.1f){
             if (Target.IsEnd){
+                onDeath?.Invoke();
                 Destroy(gameObject);
             }
             else{

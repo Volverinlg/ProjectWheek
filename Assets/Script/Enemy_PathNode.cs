@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Enemy_PathNode : MonoBehaviour{
     public Enemy_PathNode next;
-    //TODO IsEnd wird später verwendet um den Enemy außerhalb der Kamera zu zerstören
     public bool IsEnd;
 
     public void OnDrawGizmos(){
