@@ -3,9 +3,11 @@ using UnityEngine.Events;
 
 public class Vererbung : MonoBehaviour{
     public EnemyStats Stats;
+    public float FireCoolDown;
     public static readonly UnityEvent Win = new();
    [SerializeField] private bool _isBoss;
-    
+
+   
     public Ship MyTarget(){
         var collidorsInRange = Physics.OverlapSphere(transform.position, Stats.Range);
         Ship targetCandidate = null;
@@ -19,16 +21,17 @@ public class Vererbung : MonoBehaviour{
     }
     
     public void Shoot(Ship Target){
-        Stats.FireRate -= Time.deltaTime;
-        if (Stats.FireRate > 0){
+        FireCoolDown -= Time.deltaTime;
+        if (FireCoolDown > 0){
             return;
         }
-        Stats.FireRate = 1 / Mathf.Max(Stats.FireRate, 0.001f);
+        
         var newProjectile = Instantiate(Stats.Projectile, transform.position, Quaternion.identity);
         var projectilePos = newProjectile.transform.position;
         projectilePos.y = Target.transform.position.y;
         newProjectile.transform.position = projectilePos;
         newProjectile.transform.LookAt(Target.transform.position);
+        FireCoolDown = 1 / Mathf.Max(Stats.FireRate, 0.001f);
     }
 
     public void GetDämätsch(int Dämätsch){
