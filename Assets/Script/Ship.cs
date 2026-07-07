@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Ship : MonoBehaviour{
-    // TODO win & lose condition, gameplay loot welcher über 3-5min sich erstreckt, endboss welcher getriggert wird sobald die 3-5min abgelaufen sind
+    // TODO endboss welcher getriggert wird sobald die 3-5min abgelaufen sind, win condition ist gleichzeitig gebunden an den Boss
     public ShipStats Stats;
     private int _currenthealth;
    
@@ -14,6 +15,7 @@ public class Ship : MonoBehaviour{
     
     public float FireCoolDown;
     
+    public static readonly UnityEvent Lose = new();
     
     void Start(){
         _move = InputSystem.actions.FindAction("Move");
@@ -36,13 +38,14 @@ public class Ship : MonoBehaviour{
         Instantiate(Bullet_Type2, MuzzleTransform.position, MuzzleTransform.rotation);
     }
     
-    public void GetDämätsch(int Dämätsch){
+    public void GetDämätsch(int Dämätsch){ // :}
         int WouldBeHealth = _currenthealth - Dämätsch;
         if (WouldBeHealth < 0){
             WouldBeHealth = 0;
         }
         if (WouldBeHealth == 0){
             Destroy(gameObject);
+            Lose.Invoke();
             return;
         }
         _currenthealth = WouldBeHealth;

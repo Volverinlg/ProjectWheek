@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22445b504e2677d4b9a3b119b09bc8df, type: 3}
   m_Name: EnemyStats_Type1
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  Speed: 2.5
-  HP: 3
+  Speed: 3.5
+  HP: 25
   "D\xE4m\xE4tsch": 0
   Range: 0
   FireRate: 0
