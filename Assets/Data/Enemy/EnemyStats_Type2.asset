@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: EnemyStats_Type2
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   Speed: 3
-  HP: 10
+  HP: 0
   Range: 50
-  FireRate: 970.4044
+  FireRate: 1
   Projectile: {fileID: 478937699306993072, guid: 2abb937fe41c77b46a0426cc8afd200a, type: 3}
   Score: 10

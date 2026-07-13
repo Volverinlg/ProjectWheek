@@ -88,8 +88,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   Stats: {fileID: 11400000, guid: c88d82de5e2d7244fb1806bd35321d0a, type: 2}
+  FireCoolDown: 3
+  _isBoss: 0
   Target: {fileID: 0}
-  FireCoolDown: 1
   EMovement: 0
   EShoot: 0
   SinCenterY: 0

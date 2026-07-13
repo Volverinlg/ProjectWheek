@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22445b504e2677d4b9a3b119b09bc8df, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  Speed: 3
-  HP: 50
-  "D\xE4m\xE4tsch": 20
+  Speed: 0
+  HP: 40
   Range: 50
-  FireRate: 1
+  FireRate: 3
   Projectile: {fileID: 478937699306993072, guid: 2abb937fe41c77b46a0426cc8afd200a, type: 3}
   Score: 10

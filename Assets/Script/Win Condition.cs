@@ -7,7 +7,7 @@ public class WinCondition : MonoBehaviour{
     public void Start(){
         _winText = GetComponent<TextMeshProUGUI>();
         _winText.enabled = false;
-         Vererbung.Win.AddListener(Win);
+        Enemy_DMG_Handling.Win.AddListener(Win);
     }
     private void Win(){
         _winText.enabled = true;

@@ -5,4 +5,5 @@ public class ShipStats : ScriptableObject{
     public float Speed;
     public int HP;
     public float FireRate;
+    public GameObject Projectile;
 }

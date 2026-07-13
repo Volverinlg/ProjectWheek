@@ -1,23 +1,23 @@
 using UnityEngine;
 
-public class Enemy : Vererbung{
+public class Enemy : Enemy_DMG_Handling{
     public Enemy_PathNode Target;
     
     public EMovement EMovement;
     public EShoot EShoot;
     
-    public float SinCenterY;
-    public float WaveHeight = 0.5f;
-    public float Frequenz = 1f;
+    private float _sinCenterY;
+    private readonly float _waveHeight = 1f;
+    private readonly float _frequenz = 1f;
     public bool invertieren;
 
     public System.Action onDeath;
     
-    void Start(){
-        SinCenterY = transform.position.y;
+    public void Start(){
+        _sinCenterY = transform.position.z;
     }
 
-    void Update(){
+    public void Update(){
         switch (EMovement){
             case EMovement.Waypoints:
                 MoveForward();
@@ -36,15 +36,15 @@ public class Enemy : Vererbung{
         }
     }
 
-    public void MoveForward(){
+    private void MoveForward(){
         if (Target == null){
             return;
         }
-        float step = Stats.Speed * Time.deltaTime;
+        var step = Stats.Speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, step);
     }
     
-    public void CheckArrivale(){    
+    private void CheckArrivale(){    
         if (Vector3.Distance(transform.position, Target.transform.position) < 0.1f){
             if (Target.IsEnd){
                 onDeath?.Invoke();
@@ -56,14 +56,14 @@ public class Enemy : Vererbung{
         }
     }
     
-    public void WellenReiter(){
+    private void WellenReiter(){
         Vector3 pos = transform.position;
         pos.x -= Stats.Speed * Time.deltaTime;
-        float sin = Mathf.Sin(pos.x * Frequenz) * WaveHeight;
+        float sin = Mathf.Sin(pos.x * _frequenz) * _waveHeight;
         if (invertieren){
             sin *= -1;
         }
-        pos.y = SinCenterY + sin;
+        pos.z = _sinCenterY + sin;
         if (pos.x < -20){
             Destroy(gameObject);
         }

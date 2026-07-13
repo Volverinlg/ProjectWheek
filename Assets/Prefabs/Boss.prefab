@@ -132,4 +132,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
   Stats: {fileID: 11400000, guid: 500f506360b76d34fbbd201b17644d1d, type: 2}
+  FireCoolDown: 1
   _isBoss: 1

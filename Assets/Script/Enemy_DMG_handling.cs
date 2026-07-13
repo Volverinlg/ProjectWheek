@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Vererbung : MonoBehaviour{
+public class Enemy_DMG_Handling : MonoBehaviour{
     public EnemyStats Stats;
-    public float FireCoolDown;
+    private float _fireCoolDown = 3f;
     public static readonly UnityEvent Win = new();
    [SerializeField] private bool _isBoss;
-
    
     public Ship MyTarget(){
         var collidorsInRange = Physics.OverlapSphere(transform.position, Stats.Range);
@@ -20,18 +19,18 @@ public class Vererbung : MonoBehaviour{
         return targetCandidate;
     }
     
-    public void Shoot(Ship Target){
-        FireCoolDown -= Time.deltaTime;
-        if (FireCoolDown > 0){
+    public void Shoot(Ship Ziel){
+        _fireCoolDown -= Time.deltaTime;
+        if (_fireCoolDown > 0){
             return;
         }
         
         var newProjectile = Instantiate(Stats.Projectile, transform.position, Quaternion.identity);
         var projectilePos = newProjectile.transform.position;
-        projectilePos.y = Target.transform.position.y;
+        projectilePos.y = Ziel.transform.position.y;
         newProjectile.transform.position = projectilePos;
-        newProjectile.transform.LookAt(Target.transform.position);
-        FireCoolDown = 1 / Mathf.Max(Stats.FireRate, 0.001f);
+        newProjectile.transform.LookAt(Ziel.transform.position);
+        _fireCoolDown = 1 / Mathf.Max(Stats.FireRate, 0.001f);
     }
 
     public void GetDämätsch(int Dämätsch){

@@ -5,15 +5,14 @@ using UnityEngine.InputSystem;
 public class Ship : MonoBehaviour{
     // TODO endboss welcher getriggert wird sobald die 3-5min abgelaufen sind, win condition ist gleichzeitig gebunden an den Boss
     public ShipStats Stats;
+    private float _fireCoolDown = 1.3f;
     private int _currenthealth;
    
     private InputAction _move;
     private InputAction _shoot;
-   
-    public GameObject Bullet_Type2;
-    public Transform MuzzleTransform;
     
-    public float FireCoolDown;
+    public Transform Muzzle1;
+    public Transform Muzzle2;
     
     public static readonly UnityEvent Lose = new();
     
@@ -27,15 +26,16 @@ public class Ship : MonoBehaviour{
     void Update(){
         Vector2 moveValue = _move.ReadValue<Vector2>();
         transform.Translate(moveValue.x * Stats.Speed * Time.deltaTime,0,moveValue.y * Stats.Speed * Time.deltaTime);
-        FireCoolDown -= Time.deltaTime;
-        if (_shoot.IsPressed() && FireCoolDown <= 0){
+        _fireCoolDown -= Time.deltaTime;
+        if (_shoot.IsPressed() && _fireCoolDown <= 0){
            Shoot();
-           FireCoolDown = 1/Stats.FireRate;
+           _fireCoolDown = 1/Stats.FireRate;
         }
     }
     
     public void Shoot(){
-        Instantiate(Bullet_Type2, MuzzleTransform.position, MuzzleTransform.rotation);
+        Instantiate(Stats.Projectile, Muzzle1.position, Muzzle1.rotation);
+        Instantiate(Stats.Projectile, Muzzle2.position, Muzzle2.rotation);
     }
     
     public void GetDämätsch(int Dämätsch){ // :}

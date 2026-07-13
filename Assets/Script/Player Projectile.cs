@@ -13,7 +13,7 @@ public class Player_Projectile : MonoBehaviour{
       bool hasHit = Physics.Raycast(transform.position, transform.forward, out RaycastHit hit,
          distanceThisFrame + Single.Epsilon);
       if (hasHit){
-         var enemyComponent = hit.collider.GetComponent<Vererbung>();
+         var enemyComponent = hit.collider.GetComponent<Enemy_DMG_Handling>();
          enemyComponent?.GetDämätsch(Power); 
          Destroy(gameObject);
       }
