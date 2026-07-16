@@ -29,10 +29,10 @@ public class EnemySpawner : MonoBehaviour{
          Enemy enemyScript = enemy.GetComponent<Enemy>();
          enemyScript.Target = Target;
          enemyScript.onDeath += () => _currentEnemies--;
-         Prefabs.Clear();
+         /*Prefabs.Clear();
          if (Prefabs.Count <= 0){
              Instantiate(Boss, transform.position, Quaternion.identity);
-         }
+         }*/
      }
 
      public void SpawnBoss(){

@@ -11,7 +11,7 @@ public class Player_Projectile : MonoBehaviour{
       LifeTimeHandler();
       float distanceThisFrame = Speed * Time.deltaTime;
       bool hasHit = Physics.Raycast(transform.position, transform.forward, out RaycastHit hit,
-         distanceThisFrame + Single.Epsilon);
+         distanceThisFrame + Single.Epsilon, LayerMask.GetMask("Enemie"));
       if (hasHit){
          var enemyComponent = hit.collider.GetComponent<Enemy_DMG_Handling>();
          enemyComponent?.GetDämätsch(Power); 
